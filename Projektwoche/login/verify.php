@@ -1,39 +1,25 @@
 <?php
 	session_start();
 	$_SESSION['name'] = (isset($_POST['name']))?$_POST['name']:"";
-	if (!empty($_POST["name"])&&!empty($_POST["password"])) {
-		if (!preg_match('/[^A-Za-z0-9]/',$_POST['name'])) {  
-			$hash = '$2y$10$idZZaJf9Y3GvWtGUHIgNqOXEX/BnyDPt0f4XU0VtYiMBeaWCGVlJm'; #Hash aus der Datenbank abfragen an Stelle des Users
-			if (empty($hash)) {		#Wenn kein Hash vorhanden existiert der Schüler nicht
-				$_SESSION['status'] = 23;	
-				header ("Location: login.php");
-			}	
+	if (!empty($_POST['name'])&&!empty($_POST['password'])) {{  
+		$hash = checkPW($_POST['name']); 
+		if (empty($hash)) {		#Wenn schüler nicht in der Datenbank vorhanden..!?	
+			$_SESSION['status'] = 23;	
+		}	
+		else {
+			if (password_verify($_POST['password'], $hash)) { 	#Fehlend: Falls nur erstPW vorhanden
+				$rights = getRights($_POST['name']);
+				$_SESSION['id'] = $rights[0];
+				$_SESSION['permission'] = $rights[1];	 #Oder andersrum?
+				header ("Location: /?page=start");
+			}
 			else {
-				if (password_verify($_POST["password"], $hash)) { 
-					$_SESSION["permission"] = 1;	
-					header ("Location: /?page=Start");
-				}
-				else {
-					$_SESSION['status'] = 32;
-					header ("Location: login.php");
-				}
+				$_SESSION['status'] = 32;
 			}
 		}
-		else {
-			$_SESSION['status'] = 23;
-			header ("Location: login.php");
-		}
 	}
-	elseif (empty($_POST["name"])&&empty($_POST["password"])) {
-		$_SESSION['status'] = 22;
-		header ("Location: login.php");
-	}
-	elseif (empty($_POST["name"])) {
-		$_SESSION['status'] = 21;
-		header ("Location: login.php");
-	} 
-	elseif (empty($_POST["password"])) {
-		$_SESSION['status'] = 31;
-		header ("Location: login.php");
-	}
+	elseif (empty($_POST['name'])&&empty($_POST['password'])){$_SESSION['status'] = 22;}
+	elseif (empty($_POST['name'])){$_SESSION['status'] = 21;} 
+	elseif (empty($_POST['password'])){$_SESSION['status'] = 31;}
+	header ("Location: login.php");
 ?>
