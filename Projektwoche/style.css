@@ -1,4 +1,8 @@
-﻿body {
+* {
+	font-family: 'Helvetica', sans-serif;	
+}
+
+body {
 	margin: 0;
 	padding: 0;
 }
@@ -74,4 +78,11 @@ textarea {
 
 .status {
 	color: #FF0000;
+}
+
+/*Lenn + Nick Styles*/
+
+h1 {
+	text-align: center;
+	
 }
