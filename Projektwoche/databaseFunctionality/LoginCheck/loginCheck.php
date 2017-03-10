@@ -4,30 +4,19 @@ $pdo = new PDO('mysql:host=localhost;dbname=projektwochen-db', 'root', '');
 
 function checkPW($inputName) 
 {
-	$sql = "SELECT hash FROM user WHERE name = $inputName";
-	if(isEmpty($sql))
-	{
-		$sql = "SELECT firstPW FROM user WHERE name = $inputName";
-		return $sql;
-	} else {
-		return $sql;
-	}
+	#works
+	global $pdo;
+	$sql = "SELECT hash, firstPW FROM user WHERE nutzerName = '$inputName'";
+	$password = $pdo->query($sql)->fetch();
+	return empty($password[0])?$password[1]:$password[0];
 }
 
 function getRights($inputName)
 {
-	$rights = "SELECT userID, power FROM user WHERE name = $inputName";
-	$return = [];
-	foreach($pdo->query($rights) as $row) {
-		$return[0] = $row['userID'];
-		$return[1] = $row['power'];
-	} 
-	return $return;	
+	#works
+	global $pdo;
+	$rights = "SELECT userID, power FROM user WHERE nutzerName = '$inputName'";
+	return $pdo->query($rights)->fetch();
 }
-
-print_r(getRights("GGrass"));
-
-
-
 
 ?>
