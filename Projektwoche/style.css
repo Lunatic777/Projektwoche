@@ -1,0 +1,77 @@
+﻿body {
+	margin: 0;
+	padding: 0;
+}
+
+#navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4c4c4c;
+}
+
+.link {
+    float: left;
+}
+
+.link a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.link a:hover, .active { 
+    background-color: #3d3d3d;
+}
+
+.backToTop {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: auto;
+	font-size: 20px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+button {
+    background-color: #4286f4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+input[type=text], input[type=password], textarea, select { 
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+textarea {
+	height: 250px;
+	resize: none;
+}
+
+.container {
+    padding: 16px;
+	border: 3px solid #f1f1f1;
+	max-width: 500px;
+    margin: auto;	
+}
+
+.status {
+	color: #FF0000;
+}
