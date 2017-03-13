@@ -7,8 +7,11 @@ function checkPW($inputName)
 	#works
 	global $pdo;
 	$sql = "SELECT hash, firstPW FROM user WHERE nutzerName = '$inputName'";
+	return $pdo->query($sql)->fetch();
+	/*
 	$password = $pdo->query($sql)->fetch();
 	return empty($password[0])?password_hash($password[1], PASSWORD_DEFAULT):$password[0];
+	*/
 }
 
 function getRights($inputName)
