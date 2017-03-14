@@ -26,6 +26,12 @@
 		<option value="5">9. Klasse</option>
 		<option value="6">10. Klasse</option>
 	</select>
-	<input type="text" name="teacher" placeholder="Lehrer">
+	<label><b>Geschlecht</b></label><br>
+	<select name="geschlecht">
+		<option value="1">männlich</option>
+		<option value="2">weiblich</option>
+		<option value="70">cis</option>
+		<option value="69">AAH</option>
+	</select>
 	<button type="submit">Erstellen</button>
 </form>
