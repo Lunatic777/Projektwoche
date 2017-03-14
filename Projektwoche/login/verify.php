@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	if ($_POST['captcha_code'] == $_SESSION['captcha_spam']) {
 	require("../databaseFunctionality/LoginCheck/loginCheck.php");
 	$_SESSION['name'] = (isset($_POST['name']))?$_POST['name']:"";
 	if (!empty($_POST['name'])&&!empty($_POST['password'])) {  
 		$hash = checkPW($_POST['name']);
+		$rights = NULL;
 		if (!empty($hash[0])) {	
 			$rights = password_verify($_POST['password'], $hash[0])?getRights($_POST['name']):NULL;		
 		}
@@ -14,7 +14,7 @@
 		if ($rights!=NULL) {
 			$_SESSION['id'] = $rights[0];
 			$_SESSION['permission'] = $rights[1];
-			header ("Location: /?page=start");
+			header("Location: /?page=start");
 		}
 		else {
 			$_SESSION['status'] = 32;
@@ -23,7 +23,5 @@
 	elseif (empty($_POST['name'])&&empty($_POST['password'])){$_SESSION['status'] = 22;}
 	elseif (empty($_POST['name'])){$_SESSION['status'] = 21;} 
 	elseif (empty($_POST['password'])){$_SESSION['status'] = 31;}
-	header ("Location: login.php");
-	} else {echo 'Du hast den Captcha-Code falsch eingegeben!';
-		}
+	if (!empty($_SESSION['status'])) {header("Location: login.php");}
 ?>
