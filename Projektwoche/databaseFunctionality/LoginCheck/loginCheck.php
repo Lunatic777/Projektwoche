@@ -6,7 +6,7 @@ function checkPW($inputName)
 {
 	#works
 	global $pdo;
-	$sql = "SELECT hash, firstPW FROM user WHERE nutzerName = '$inputName'";
+	$sql = "SELECT hash, firstPW FROM user WHERE username = '$inputName'";
 	return $pdo->query($sql)->fetch();
 	/*
 	$password = $pdo->query($sql)->fetch();
@@ -18,7 +18,7 @@ function getRights($inputName)
 {
 	#works
 	global $pdo;
-	$rights = "SELECT userID, power FROM user WHERE nutzerName = '$inputName'";
+	$rights = "SELECT userID, power FROM user WHERE username = '$inputName'";
 	return $pdo->query($rights)->fetch();
 }
 
