@@ -2,13 +2,14 @@
 	<h1>Projekt erstellen</h1>
 </center>
 <form class="container" action="" method="post">	<!-- add action -->
-	<label><b>Projektname:</b></label>
-	<input type="text" name="name" placeholder="Projektname">
-	<label><b>Projektbeschreibung:</b></label>
-	<textarea name="name" placeholder="Projektbeschreibung"></textarea>
-	<label><b>Angaben:</b></label><br>
+	<label><b>Projektname:</b></label><br>
+	<input type="text" name="proName" placeholder="Projektname">
+	<label><b>Projektbeschreibung:</b></label><br>
+	<textarea name="proBesch" placeholder="Projektbeschreibung"></textarea>
+	<label><b>Angaben:</b></label>
 	<!--<input type="text" name="maxS" placeholder="max. Schüler"> -->
-	<select name="mind. Jahrgangsstufe">
+	<label><b>mind. Jahrgangsstufe:</b></label>
+	<select name="minJahr">
 		<option value="1">5. Klasse</option>
 		<option value="2">6. Klasse</option>
 		<option value="3">7. Klasse</option>
@@ -16,7 +17,8 @@
 		<option value="5">9. Klasse</option>
 		<option value="6">10. Klasse</option>
 	</select>
-	<select name="max. Jahrgangsstufe">
+	<label><b>max. Jahrgangsstufe:</b></label><br>
+	<select name="maxJahr">
 		<option value="1">5. Klasse</option>
 		<option value="2">6. Klasse</option>
 		<option value="3">7. Klasse</option>
