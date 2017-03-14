@@ -28,10 +28,9 @@
 	</select>
 	<label><b>Geschlecht</b></label><br>
 	<select name="geschlecht">
-		<option value="1">männlich</option>
-		<option value="2">weiblich</option>
-		<option value="70">cis</option>
-		<option value="69">AAH</option>
+		<option value="1">-</option>
+		<option value="2">männlich</option>
+		<option value="3">weiblich</option>
 	</select>
 	<button type="submit">Erstellen</button>
 </form>
