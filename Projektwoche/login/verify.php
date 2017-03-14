@@ -2,12 +2,12 @@
 	session_start();
 	require("../databaseFunctionality/LoginCheck/loginCheck.php");
 	$_SESSION['name'] = (isset($_POST['name']))?$_POST['name']:"";
-	if (!empty($_POST['name'])&&!empty($_POST['password'])) {{  
+	if (!empty($_POST['name'])&&!empty($_POST['password'])) {  
 		$hash = checkPW($_POST['name']);
 		if (!empty($hash[0])) {	
 			$rights = password_verify($_POST['password'], $hash[0])?getRights($_POST['name']):NULL;		
 		}
-		else if (!empty($hash[1])) {
+		elseif (!empty($hash[1])) {
 			$rights = $hash[1]==$_POST['password']?getRights($_POST['name']):NULL;
 		}
 		if ($rights!=NULL) {
