@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	if ($_POST['captcha_code'] == $_SESSION['captcha_spam']) {
 	require("../databaseFunctionality/LoginCheck/loginCheck.php");
 	$_SESSION['name'] = (isset($_POST['name']))?$_POST['name']:"";
 	if (!empty($_POST['name'])&&!empty($_POST['password'])) {  
@@ -23,4 +24,6 @@
 	elseif (empty($_POST['name'])){$_SESSION['status'] = 21;} 
 	elseif (empty($_POST['password'])){$_SESSION['status'] = 31;}
 	header ("Location: login.php");
+	} else {echo 'Du hast den Captcha-Code falsch eingegeben!';
+		}
 ?>
