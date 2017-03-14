@@ -62,14 +62,11 @@
 			elseif ($statusCode=="22") {
 				$status = "Bitte geben sie ihren Benutzernamen und ihr Passwort ein!";
 			}
-			elseif ($statusCode=="23") {
-				$status = "Falscher Nutzername. Bitte versuchen sie es erneut!";
-			}
 			elseif ($statusCode=="31") {
 				$status = "Bitte geben sie ihr Passwort ein!";
 			}
 			elseif ($statusCode=="32") {
-				$status = "Falsches Passwort. Bitte geben sie ihr Passwort erneut ein!";
+				$status = "Falscher Nutzername oder Passwort.";
 			}
 			elseif ($statusCode=="33") {
 				$status = "Bitte geben sie ihr jetziges Passwort ein!";
