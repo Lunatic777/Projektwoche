@@ -15,8 +15,6 @@
 			<input type="text" placeholder="Name" name="name" value="<?php echo (isset($_SESSION['name']))?$_SESSION['name']:"";?>"> 		
 			<label><b>Passwort:</b></label>
 			<input type="password" placeholder="Passwort" name="password">
-			<img src="captcha.php?RELOAD=" alt="Captcha" title="Klicken, um das Captcha neu zu laden" onclick="this.src+=1;document.getElementById('captcha_code').value='';" width=140 height=40 />
-			<input type="text" name="captcha_code" id="captcha_code" size=10 />
 			<button type="submit">Login</button>
 			<span class="status">
 			<?php
