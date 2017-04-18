@@ -6,10 +6,10 @@
 	<input type="text" name="proName" placeholder="Projektname">
 	<label><b>Projektbeschreibung:</b></label><br>
 	<textarea name="proBesch" placeholder="Projektbeschreibung"></textarea>
+	<label><b>mind. Schüleranzahl</b></label>
+	<input type="text" name="minS" placeholder="min. Schüler">
 	<label><b>max. Schüleranzahl</b></label>
 	<input type="text" name="maxS" placeholder="max. Schüler">
-	<label><b>min. Schüleranzahl</b></label>
-	<input type="text" name="minS" placeholder="min. Schüler">
 	<label><b>mind. Jahrgangsstufe:</b></label>
 	<select name="minJahr">
 		<option value="1" selected>5. Klasse</option>
