@@ -49,5 +49,5 @@
  	<input type="checkbox">
   	<div class="slider"></div>
 	<button type="submit">Erstellen</button>
-	</label>
+	</label><br>
 </form>
