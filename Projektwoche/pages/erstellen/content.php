@@ -48,6 +48,6 @@
 	<label class="switch">
  	<input type="checkbox">
   	<div class="slider"></div>
-	<button type="submit">Erstellen</button>
 	</label><br>
+	<button type="submit">Erstellen</button>
 </form>
