@@ -1,0 +1,33 @@
+<?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=projektwochen-db', 'root', '');
+
+function projectData($class)
+{
+	global $pdo;
+	$projectData = array();
+	
+	preg_match('/[0-9]+/', $class, $grade);
+	preg_match('/[GRH]/', $class, $affiliation); #var <=> array; value <=> [0]
+	
+	$sql = "SELECT COUNT(*) FROM projects";
+	$projectAmount = $pdo->query($sql)->fetch();
+	for($i = 1; $i <= $projectAmount[0]; $i++)
+	{
+		$sql = "SELECT * FROM projects WHERE projectID = $i";
+		$currentProject = $pdo->query($sql)->fetch();
+
+		if($grade[0] >= $currentProject["minGrade"] &&
+		   $grade[0] <= $currentProject["maxGrade"] &&
+		   preg_match("/".$affiliation[0]."/", $currentProject["affiliation"]))
+		   {
+			   $projectInfo[0] = $currentProject["projectID"];
+			   $projectInfo[1] = $currentProject["projectName"];
+			   $projectInfo[2] = $currentProject["projectDesc"];
+			   
+			   $projectData[count($projectData)] = $projectInfo;
+		   }
+	}
+	return $projectData;
+}
+?>
