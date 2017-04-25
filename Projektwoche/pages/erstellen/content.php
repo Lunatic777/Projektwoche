@@ -1,11 +1,13 @@
 <center>
 	<h1>Projekt erstellen</h1>
 </center>
-<form class="container" action="" method="post">
+<form class="container" action="<?php echo"pages/".$_GET['page']."/functionality/createProjects.php";?>" method="post">
 	<label><b>Projektname:</b></label><br>
 	<input type="text" name="proName" placeholder="Projektname">
 	<label><b>Projektbeschreibung:</b></label><br>
 	<textarea name="proBesch" placeholder="Projektbeschreibung"></textarea>
+	<label><b>Leitender Lehrer</b></label><br>
+	<input type="text" name="lehr" placeholder="Bsp.: Max Mustermann"></textarea>
 	<label><b>mind. Schüleranzahl</b></label>
 	<input type="text" name="minS" placeholder="min. Schüler">
 	<label><b>max. Schüleranzahl</b></label>
@@ -36,18 +38,23 @@
 	</select>
 	<label><b>Gymnasium</b></label>
 	<label class="switch">
- 	<input type="checkbox">
+ 	<input type="checkbox" name="gym" value="G" <?php echo empty($_SESSION['gym'])?"checked":"";?>>
   	<div class="slider"></div>
 	</label>	
 	<label><b>Realschule</b></label>
 	<label class="switch">
- 	<input type="checkbox">
+ 	<input type="checkbox" name="real" value="R" <?php echo empty($_SESSION['real'])?"checked":"";?>>
   	<div class="slider"></div>
 	</label>	
 	<label><b>Hauptschule</b></label>
 	<label class="switch">
- 	<input type="checkbox">
+ 	<input type="checkbox" name="haupt" value="H" <?php echo empty($_SESSION['haupt'])?"checked":"";?>>
   	<div class="slider"></div>
 	</label><br>
 	<button type="submit">Erstellen</button>
+	<span class="status">
+		<?php
+			printStatus();
+		?>	
+	</span>	
 </form>
