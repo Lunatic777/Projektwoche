@@ -1,0 +1,12 @@
+<?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=projektwochen-db', 'root', '');
+
+function insertUData ($username, $firstname, $surname, $class, $birthdate, $power, $firstPW)
+{
+	global $pdo;
+	
+	$statement = $pdo->prepare("INSERT INTO user(username, firstname, surname, class, birthdate, power, firstPW) VALUES (?, ?, ?, ?, ?, ?, ?) ");
+	$statement->execute(array($username, $firstname, $surname, $class, $birthdate, $power, $firstPW));
+}
+?>
