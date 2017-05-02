@@ -1,0 +1,34 @@
+<?php
+
+$pdo = new PDO("mysql_host=localhost;dbname=projektwochen-db";"root","");
+
+#!HANDLE WITH CARE!#
+
+function deleteUsers()
+{
+	#Deletes all data from table 'user'
+	$statement = $pdo->prepare("DELETE FROM users");
+	$statement->execute();
+}
+
+function deleteProjects()
+{
+	#Deletes all data from table 'projects'
+	$statement = $pdo->prepare("DELETE FROM projects");
+	$statement->execute();
+}
+
+function deleteVote()
+{
+	#Deletes all data from table 'vote'
+	$statement = $pdo->prepare("DELETE FROM vote");
+	$statement->execute();
+}
+
+function deleteUserByPower()
+{
+	#Deletes all students from table 'user'
+	$statement = $pdo->prepare("DELETE FROM users WHERE power = 1");
+	$statement->execute();
+}
+?>
